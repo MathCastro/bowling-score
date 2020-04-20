@@ -61,12 +61,22 @@ public class Player {
                     this.score += scoreAux;
                     break;
                 case STRIKE:
-                    scoreAux = frame.sumPins() + this.frames.get(i+1).sumPins();
+                    scoreAux = frame.sumPins() + this.getScoreOfNextTwoRolls(i);
                     frame.setScore(scoreAux);
                     this.score += scoreAux;
                     break;
             }
         }
+    }
+
+    private int getScoreOfNextTwoRolls(int currentFrame) {
+        Frame frame = this.frames.get(currentFrame + 1);
+
+        if(frame.getStatus() == FrameStatus.STRIKE) {
+            return frame.sumPins() + this.frames.get(currentFrame + 2).getRolls().get(0).getValueOfPins();
+        }
+
+        return frame.getRolls().get(0).getValueOfPins() + frame.getRolls().get(1).getValueOfPins();
     }
 
     public void validate(int framesSize) {
