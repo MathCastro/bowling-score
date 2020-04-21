@@ -10,6 +10,7 @@ public class Frame {
     private FrameStatus status;
 
     public Frame(int number, Roll roll) {
+        validateRolls(number, 1);
         this.number = number;
         this.rolls = new ArrayList<>();
         this.rolls.add(roll);

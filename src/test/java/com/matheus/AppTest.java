@@ -1,7 +1,6 @@
 package com.matheus;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import com.matheus.bowling.input.InputController;
 import com.matheus.bowling.input.RollFile;

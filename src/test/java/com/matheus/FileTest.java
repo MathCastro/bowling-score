@@ -4,9 +4,6 @@ import com.matheus.bowling.input.InputController;
 import com.matheus.bowling.input.RollFile;
 import com.matheus.bowling.input.file.FileHandler;
 import org.junit.Test;
-
-import java.io.FileNotFoundException;
-import java.nio.file.NoSuchFileException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
