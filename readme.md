@@ -1,6 +1,6 @@
 # Bowling Score
 
-Bowling Score is a project to score points in a match of bowling.
+Bowling Score is a project to score points in a match of bowling. To run this project you will need JDK 1.8 (or higher).
 
 # Run
 
