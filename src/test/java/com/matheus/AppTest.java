@@ -69,4 +69,15 @@ public class AppTest
         assertEquals(0, game.getPlayer("Jean").getScore());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void matchScoreBadFormat() {
+        List<RollFile> rollsFromFile;
+
+        InputController inputController = new InputController(new FileHandler("input-files/bad-format.txt"));
+        rollsFromFile = inputController.read();
+
+        BowlingScore bowlingScore = new ScoreController(new TenPinBowlingScore());
+        bowlingScore.createGame(rollsFromFile);
+    }
+
 }
