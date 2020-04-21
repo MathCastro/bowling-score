@@ -22,14 +22,18 @@ public class App
         Game game;
         List<RollFile> rollsFromFile;
 
+        //Handle Input
         SysOutHandler sysout = new SysOutHandler();
         UserInput input = new UserInputController(new ScannerHandler(), sysout);
 
+        //Handle Output
         UserOutputController output = new UserOutputController(sysout);
 
+        //Handle Files
         InputController inputController = new InputController(new FileHandler(input.readFileName()));
         rollsFromFile = inputController.read();
 
+        //Build Game hierarchy
         BowlingScore bowlingScore = new ScoreController(new TenPinBowlingScore());
         game = bowlingScore.createGame(rollsFromFile);
 

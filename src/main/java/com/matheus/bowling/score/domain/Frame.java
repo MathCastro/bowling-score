@@ -9,22 +9,10 @@ public class Frame {
     private List<Roll> rolls;
     private FrameStatus status;
 
-    public Frame(int number) {
-        this.number = number;
-        this.rolls = new ArrayList<>();
-    }
-
     public Frame(int number, Roll roll) {
         this.number = number;
         this.rolls = new ArrayList<>();
         this.rolls.add(roll);
-    }
-
-    public Frame(int score, int number, List<Roll> rolls) {
-        validateRolls(number, rolls.size());
-        this.score = score;
-        this.number = number;
-        this.rolls = rolls;
     }
 
     public void addRoll(Roll roll) {
