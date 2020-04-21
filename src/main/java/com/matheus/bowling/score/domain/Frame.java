@@ -72,13 +72,17 @@ public class Frame {
     }
 
     public void defStatus() {
-        if(this.sumPins() == 10) {
-            if(this.number != 10 && this.rolls.size() == 2)
-                setStatus(FrameStatus.SPARE);
-            else
-                setStatus(FrameStatus.STRIKE);
+        if (this.number == 10) {
+            setStatus(FrameStatus.LAST);
         } else {
-            setStatus(FrameStatus.NORMAL);
+            if (this.sumPins() == 10) {
+                if (this.rolls.size() == 2)
+                    setStatus(FrameStatus.SPARE);
+                else
+                    setStatus(FrameStatus.STRIKE);
+            } else {
+                setStatus(FrameStatus.NORMAL);
+            }
         }
     }
 

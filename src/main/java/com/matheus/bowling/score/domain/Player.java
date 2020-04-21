@@ -52,6 +52,7 @@ public class Player {
             frame = this.frames.get(i);
             switch (frame.getStatus()) {
                 case NORMAL:
+                case LAST:
                     frame.setScore(frame.sumPins());
                     this.score += frame.sumPins();
                     break;
