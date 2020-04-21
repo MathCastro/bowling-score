@@ -12,8 +12,4 @@ public class InputController implements BowlingInput {
     public List<RollFile> read() {
         return this.bowlingInput.read();
     }
-
-    public void write() {
-        this.bowlingInput.write();
-    }
 }

@@ -32,11 +32,6 @@ public class FileHandler implements BowlingInput {
         return rolls;
     }
 
-    @Override
-    public void write() {
-
-    }
-
     private RollFile getRoll(String line) {
         String[] args = line.trim().split("\\s+");
         RollFile roll = new RollFile(args[0], args[1]);
