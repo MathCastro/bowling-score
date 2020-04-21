@@ -10,6 +10,7 @@ import com.matheus.user.input.UserInput;
 import com.matheus.user.input.UserInputController;
 import com.matheus.user.input.scanner.ScannerHandler;
 import com.matheus.bowling.input.file.FileHandler;
+import com.matheus.user.output.UserOutputController;
 import com.matheus.user.output.sysout.SysOutHandler;
 
 import java.io.IOException;
@@ -21,7 +22,10 @@ public class App
         Game game;
         List<RollFile> rollsFromFile;
 
-        UserInput input = new UserInputController(new ScannerHandler(), new SysOutHandler());
+        SysOutHandler sysout = new SysOutHandler();
+        UserInput input = new UserInputController(new ScannerHandler(), sysout);
+
+        UserOutputController output = new UserOutputController(sysout);
 
         InputController inputController = new InputController(new FileHandler(input.readFileName()));
         rollsFromFile = inputController.read();
@@ -29,6 +33,8 @@ public class App
         BowlingScore bowlingScore = new ScoreController(new TenPinBowlingScore());
         game = bowlingScore.createGame(rollsFromFile);
 
-        bowlingScore.calculateScore(game);
+        game = bowlingScore.calculateScore(game);
+
+        output.printResult(game);
     }
 }
