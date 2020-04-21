@@ -16,7 +16,7 @@ mvn exec:java -Dexec.mainClass=com.matheus.App
 When requested by prompt command:
 
 ```shell
-input-files/file.txt
+input-files/sample-score.txt
 ```
 
 ## Run with own file
